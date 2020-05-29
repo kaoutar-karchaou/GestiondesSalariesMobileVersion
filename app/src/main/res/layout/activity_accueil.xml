@@ -8,31 +8,31 @@
 
     <Button
         android:id="@+id/btn_list_salaries"
-        android:layout_width="878dp"
-        android:layout_height="112dp"
+        android:layout_width="399dp"
+        android:layout_height="62dp"
         android:text="@string/btn_list_salaries"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.639"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="219dp" />
+        tools:layout_editor_absoluteY="269dp" />
 
     <Button
         android:id="@+id/btn_add_salarie"
-        android:layout_width="878dp"
-        android:layout_height="112dp"
+        android:layout_width="391dp"
+        android:layout_height="75dp"
         android:text="@string/btn_add_salarie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="349dp" />
+        tools:layout_editor_absoluteY="367dp" />
 
     <Button
         android:id="@+id/btn_quitter"
-        android:layout_width="878dp"
-        android:layout_height="112dp"
+        android:layout_width="399dp"
+        android:layout_height="73dp"
         android:text="@string/btn_quitter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintHorizontal_bias="0.833"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="536dp" />
+        tools:layout_editor_absoluteY="465dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
