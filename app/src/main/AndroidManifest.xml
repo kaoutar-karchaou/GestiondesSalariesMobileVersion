@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".java.controller.liste_Salaries"></activity>
+        <activity android:name=".java.controller.add_sal"></activity>
+        <activity android:name=".java.controller.liste_Salaries" />
         <activity android:name=".java.controller.accueil" />
         <activity android:name=".java.controller.MainActivity">
             <intent-filter>

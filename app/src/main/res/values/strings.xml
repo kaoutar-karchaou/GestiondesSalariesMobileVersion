@@ -2,5 +2,6 @@
     <string name="app_name">login</string>
     <string name="btn_list_salaries">Salaries</string>
     <string name="btn_add_salarie">Ajouter un Salarie</string>
-    <string name="btn_quitter">Ajouter un Salarie</string>
+    <string name="btn_quitter">Quitter</string>
+    <string name="liste_sal_btn_add">Nouveau Salarié</string>
 </resources>
