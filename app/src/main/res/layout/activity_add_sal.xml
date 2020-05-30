@@ -22,10 +22,10 @@
         android:id="@+id/add_sal_prenom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="@string/add_sal_btn_nom"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

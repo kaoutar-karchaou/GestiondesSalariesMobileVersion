@@ -3,14 +3,14 @@ package com.example.GS.java.model;
 import java.util.Date;
 
 public class Salaries {
-    private String id ;
+    private int id ;
     private String nom  ;
     private String prenom  ;
     private String cin ;
     private String adresse ;
     private String telephone;
     private String email;
-    private Date dateNaissance;
+    private String dateNaissance;
     private String departement ;
     private String emploiOccupe;
     private int Anciennete ;
@@ -19,7 +19,7 @@ public class Salaries {
     public Salaries() {
     }
 
-    public Salaries(String nom, String prenom, String cin, String adresse, String telephone, String email, Date dateNaissance, String departement, String emploiOccupe, int anciennete, double salaireBase) {
+    public Salaries(String nom, String prenom, String cin, String adresse, String telephone, String email, String dateNaissance, String departement, String emploiOccupe, int anciennete, double salaireBase) {
         this.nom = nom;
         this.prenom = prenom;
         this.cin = cin;
@@ -33,8 +33,11 @@ public class Salaries {
         this.salaireBase = salaireBase;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
+    }
+    public void setId(int id){
+        this.id=id;
     }
 
     public String getNom() {
@@ -85,11 +88,11 @@ public class Salaries {
         this.email = email;
     }
 
-    public Date getDateNaissance() {
+    public String getDateNaissance() {
         return dateNaissance;
     }
 
-    public void setDateNaissance(Date dateNaissance) {
+    public void setDateNaissance(String dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
 
