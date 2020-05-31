@@ -24,4 +24,11 @@
     <string name="login_title">Connexion</string>
     <string name="btn_connect">se connecter</string>
     <string name="btn_register">s\'inscrire</string>
+    <string name="btn_register_validate">valider</string>
+    <string name="btn_register_cancel">annuler</string>
+    <string name="reg_title">Inscription</string>
+    <string name="reg_log">veuillez saisir un nom d\'utilisateur valide</string>
+    <string name="reg_pswd1">veuillez saisir un mot de passe valide</string>
+    <string name="reg_pswd2">veuillez confirmer le mot de passe</string>
+
 </resources>

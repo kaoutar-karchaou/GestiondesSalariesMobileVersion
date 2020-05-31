@@ -10,6 +10,7 @@ import com.example.GS.java.model.User;
 public class UserdataSource {
     databaseHelper mydb;
     SQLiteDatabase db;
+    Context c;
 
     public UserdataSource(Context c){
 
@@ -21,7 +22,8 @@ public class UserdataSource {
         ContentValues values=new ContentValues();
 
         values.put("login",u.getLogin());
-        values.put("password",u.getPassword());
+        values.put("password1",u.getPassword1());
+        values.put("password1",u.getPassword2());
 
         long result = db.insert(mydb.TABLE_USER,null,values);
         return result;

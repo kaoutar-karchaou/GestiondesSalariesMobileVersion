@@ -70,11 +70,10 @@ public class add_sal extends AppCompatActivity {
                 salaries.setDateNaissance(dateNaissance.getText().toString());
                 salaries.setDepartement(departement.getText().toString());
                 salaries.setEmploiOccupe(emploiOccupe.getText().toString());
-
                 salaries.setAnciennete(anc);
                 salaries.setSalaireBase(salaire);
 
-                 long res=      dataSource.insertSal(salaries);
+                 long res=dataSource.insertSal(salaries);
                         if(res ==-1){
                                 Toast.makeText(getApplicationContext(),"erreur!!",Toast.LENGTH_LONG).show();
                         }
