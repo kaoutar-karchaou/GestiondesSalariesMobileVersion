@@ -21,7 +21,7 @@ public class databaseHelper extends SQLiteOpenHelper {
         String sql="create table "+TABLE_SAL+" (id INTEGER primary key autoincrement, nom TEXT, prenom TEXT, email TEXT, " +
                 "telephone TEXT, cin TEXT , addresse TEXT, dateNaissance TEXT, departement TEXT , empoloiOccupe TEXT, anciennete INTEGER, salairebase INTEGER) ";
 
-        String sqlite="create table "+TABLE_USER+" (id INTEGER primary key autoincrement, login TEXT, password TEXT) ";
+        String sqlite="create table "+TABLE_USER+" (login TEXT, password1 TEXT, password2 TEXT) ";
         db.execSQL(sql);
         db.execSQL(sqlite);
 

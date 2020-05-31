@@ -8,9 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.GS.java.model.User;
 
 public class UserdataSource {
-    databaseHelper mydb;
-    SQLiteDatabase db;
-    Context c;
+    private databaseHelper mydb;
+    private SQLiteDatabase db;
 
     public UserdataSource(Context c){
 
@@ -23,15 +22,15 @@ public class UserdataSource {
 
         values.put("login",u.getLogin());
         values.put("password1",u.getPassword1());
-        values.put("password1",u.getPassword2());
+        values.put("password2",u.getPassword2());
 
-        long result = db.insert(mydb.TABLE_USER,null,values);
+        long result = db.insert("users",null,values);
         return result;
     }
 
     public boolean authentification(String login, String pass) {
         db = mydb.getReadableDatabase();
-        String query = "select * from user where login=? and password=?";
+        String query = "select * from user where login=? and password1=?";
         Cursor c = db.rawQuery(query, new String[]{login, pass});
 
         if (c.getCount() > 0) return true;

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SalariesDataSource {
+
 private  databaseHelper mydb;
 private SQLiteDatabase db;
 

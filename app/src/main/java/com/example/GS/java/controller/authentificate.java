@@ -30,7 +30,7 @@ public class authentificate extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 UserdataSource userdataSource= new UserdataSource(authentificate.this);
-                if (userdataSource.authentification(login.getText().toString(),password.getText().toString())==true){
+                if (userdataSource.authentification(login.getText().toString(),password.getText().toString())){
                     Toast.makeText(getApplicationContext(),"success !", Toast.LENGTH_LONG).show();
                     Intent intent= new Intent(getApplicationContext(),accueil.class);
                     startActivity(intent);

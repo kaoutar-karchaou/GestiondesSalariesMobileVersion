@@ -1,7 +1,7 @@
 package com.example.GS.java.model;
 
 public class User {
-    private int id;
+
     private String login;
     private String password1;
     private String password2;
@@ -9,8 +9,8 @@ public class User {
     public User() {
     }
 
-    public User(int id, String login, String password1, String password2) {
-        this.id = id;
+    public User( String login, String password1, String password2) {
+
         this.login = login;
         this.password1 = password1;
         this.password2 = password2;
@@ -19,16 +19,14 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+
                 ", login='" + login + '\'' +
                 ", password1='" + password1 + '\'' +
                 ", password2='" + password2 + '\'' +
                 '}';
     }
 
-    public int getId() {
-        return id;
-    }
+
 
     public String getLogin() {
         return login;

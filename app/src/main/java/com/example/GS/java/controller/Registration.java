@@ -41,8 +41,9 @@ public class Registration extends AppCompatActivity {
 
                 //on instancie UserdataSource
                 UserdataSource userdataSource = new UserdataSource(getApplicationContext());
-                long result = userdataSource.addUser(user);
-                if (result==-1){
+               long result = userdataSource.addUser(user);
+                //Toast.makeText(getApplicationContext(),Long.toString(result),Toast.LENGTH_LONG).show();
+                 if (result==-1){
 
                     Toast.makeText(getApplicationContext(),"Erreur d'inscription !! ", Toast.LENGTH_LONG).show();
                 }else{
