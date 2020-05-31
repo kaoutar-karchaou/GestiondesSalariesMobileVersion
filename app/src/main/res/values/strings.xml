@@ -17,4 +17,6 @@
     <string name="add_sal_btn_departement">Département</string>
     <string name="add_sal_btn_salaire">Salaire de Base</string>
     <string name="add_sal_btn_anciennete">Ancienneté</string>
+    <string name="add_sal_prime">Prime</string>
+    <string name="add_sal_title">Ajouter un nouveau salarié</string>
 </resources>

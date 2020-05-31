@@ -10,6 +10,7 @@ public class databaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME="contacts.db";
     public static final String TABLE_SAL="salaries";
+    public static final String TABLE_USER="users";
 
     public databaseHelper( Context context) {
         super(context, DATABASE_NAME, null , 1);
@@ -19,7 +20,11 @@ public class databaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String sql="create table "+TABLE_SAL+" (id INTEGER primary key autoincrement, nom TEXT, prenom TEXT, email TEXT, " +
                 "telephone TEXT, cin TEXT , addresse TEXT, dateNaissance TEXT, departement TEXT , empoloiOccupe TEXT, anciennete INTEGER, salairebase INTEGER) ";
+
+        String sqlite="create table "+TABLE_USER+" (id INTEGER primary key autoincrement, login TEXT, password TEXT) ";
         db.execSQL(sql);
+        db.execSQL(sqlite);
+
 
     }
 
@@ -28,6 +33,10 @@ public class databaseHelper extends SQLiteOpenHelper {
 
     String sql ="DROP TABLE IF EXISTS "+TABLE_SAL;
     db.execSQL(sql);
+
+    String sql1 ="DROP TABLE IF EXISTS "+TABLE_USER;
+    db.execSQL(sql1);
+
     onCreate(db);
     }
 }
