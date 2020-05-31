@@ -19,4 +19,9 @@
     <string name="add_sal_btn_anciennete">Ancienneté</string>
     <string name="add_sal_prime">Prime</string>
     <string name="add_sal_title">Ajouter un nouveau salarié</string>
+    <string name="login">Entrez le nom d\'utilisateur</string>
+    <string name="pswd">Entrez le mot de passe</string>
+    <string name="login_title">Connexion</string>
+    <string name="btn_connect">se connecter</string>
+    <string name="btn_register">s\'inscrire</string>
 </resources>

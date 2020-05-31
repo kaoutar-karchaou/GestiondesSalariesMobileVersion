@@ -13,7 +13,7 @@
         <activity android:name=".java.controller.add_sal" />
         <activity android:name=".java.controller.liste_Salaries" />
         <activity android:name=".java.controller.accueil" />
-        <activity android:name=".java.controller.MainActivity">
+        <activity android:name=".java.controller.authentificate">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
