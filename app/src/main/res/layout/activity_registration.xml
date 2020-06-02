@@ -4,7 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".java.controller.Registration">
+    tools:context=".controller.inscription">
+
+    <TextView
+        android:id="@+id/reg_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="@string/reg_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/reg_log"
@@ -19,6 +29,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_title" />
 
+    <EditText
+        android:id="@+id/reg_email"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/reg_email"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_log" />
+
     <Button
         android:id="@+id/btn_register_validate"
         android:layout_width="wrap_content"
@@ -27,46 +51,24 @@
         android:text="@string/btn_register_validate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.829"
+        app:layout_constraintHorizontal_bias="0.854"
         app:layout_constraintStart_toEndOf="@+id/btn_register_cancel"
-        app:layout_constraintTop_toBottomOf="@+id/reg_pswd2"
-        app:layout_constraintVertical_bias="0.844" />
-
-    <TextView
-        android:id="@+id/reg_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:text="@string/reg_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/reg_pswd1"
+        app:layout_constraintVertical_bias="0.781" />
 
     <EditText
         android:id="@+id/reg_pswd1"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="52dp"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/reg_pswd1"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_log" />
-
-    <EditText
-        android:id="@+id/reg_pswd2"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="@string/reg_pswd2"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_pswd1" />
+        app:layout_constraintTop_toBottomOf="@+id/reg_email" />
 
     <Button
         android:id="@+id/btn_register_cancel"
@@ -74,11 +76,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="92dp"
         android:text="@string/btn_register_cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_pswd2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/reg_pswd1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

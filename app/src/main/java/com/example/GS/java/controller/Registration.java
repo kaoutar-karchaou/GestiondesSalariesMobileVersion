@@ -1,66 +1,92 @@
 package com.example.GS.java.controller;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.GS.R;
-import com.example.GS.java.database.UserdataSource;
-import com.example.GS.java.model.User;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Registration extends AppCompatActivity {
-
-    EditText login,pswd1,pswd2;
-    Button validate, cancel;
-
+    EditText rname, remail, rpassword;
+    Button inscriptionBtn, cancel;
+    FirebaseAuth fAuth;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+        rname = findViewById(R.id.reg_log);
+        remail = findViewById(R.id.reg_email);
+        rpassword = findViewById(R.id.reg_pswd1);
+        inscriptionBtn = findViewById(R.id.btn_register_validate);
+        cancel = findViewById(R.id.btn_register_cancel);
 
-        login=findViewById(R.id.reg_log);
-        pswd1=findViewById(R.id.reg_pswd1);
-        pswd2=findViewById(R.id.reg_pswd2);
-        validate=findViewById(R.id.btn_register_validate);
-        cancel=findViewById(R.id.btn_register_cancel);
+        fAuth = FirebaseAuth.getInstance();
 
-        validate.setOnClickListener(new View.OnClickListener() {
+        // si l'utilisateur a deja un comte
+
+        if (fAuth.getCurrentUser() != null){
+            startActivity(new Intent(getApplicationContext(), authentificate.class));
+            finish();
+        }
+
+        // creation d'un nouveau utilisateur
+        inscriptionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User user=new User();
-                user.setLogin(login.getText().toString());
-                user.setPassword1(pswd1.getText().toString());
-                user.setPassword2(pswd2.getText().toString());
+                String email= remail.getText().toString().trim();//formater data
+                String password= rpassword.getText().toString().trim();
 
-                //on instancie UserdataSource
-                UserdataSource userdataSource = new UserdataSource(getApplicationContext());
-               long result = userdataSource.addUser(user);
-                //Toast.makeText(getApplicationContext(),Long.toString(result),Toast.LENGTH_LONG).show();
-                 if (result==-1){
-
-                    Toast.makeText(getApplicationContext(),"Erreur d'inscription !! ", Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(getApplicationContext(),"Inscription réussite !! ", Toast.LENGTH_LONG).show();
-                    Intent intent= new Intent(getApplicationContext(),authentificate.class);
-                    startActivity(intent);
+                if(TextUtils.isEmpty(email)){
+                    remail.setError("champs d'email obligé.");
+                    return;
                 }
 
+                if(TextUtils.isEmpty(password)){
+                    rpassword.setError("champs de mot de passe obligé.");
+                    return;
+                }
+
+                if(password.length()< 6){
+                    rpassword.setError("vous devez entrez au moins 6 characteres.");
+                    return;
+                }
+
+                // enregistrer l'utulisateur
+
+                fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(Registration.this, "utilisateur crée", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), authentificate.class)); //redirection vers la page connexion
+                        }else{
+                            Toast.makeText(Registration.this, "erreur !" , Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),authentificate.class);
-                startActivity(intent);
+                startActivity(new Intent(getApplicationContext(),authentificate.class));
+
             }
         });
+
     }
 }
