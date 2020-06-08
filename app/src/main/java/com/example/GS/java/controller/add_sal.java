@@ -31,7 +31,7 @@ public class add_sal extends AppCompatActivity {
     EditText prime;
     Button btnSaveSal;
     Button btnExit;
-    SalariesDataSource dataSource= new SalariesDataSource(getApplicationContext());
+    SalariesDataSource dataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,12 +68,12 @@ public class add_sal extends AppCompatActivity {
 //                int salaire =Integer.parseInt(salaireBase.getText().toString());
 //                int pr =Integer.parseInt(prime.getText().toString());
 
-                salaries.setPrenom(prenom.getText().toString());
                 salaries.setNom(nom.getText().toString());
+                salaries.setPrenom(prenom.getText().toString());
                 salaries.setCin(cin.getText().toString());
-                salaries.setEmail(email.getText().toString());
                 salaries.setAdresse(addresse.getText().toString());
                 salaries.setTelephone(telephone.getText().toString());
+                salaries.setEmail(email.getText().toString());
                 salaries.setDateNaissance(dateNaissance.getText().toString());
                 salaries.setDepartement(departement.getText().toString());
                 salaries.setEmploiOccupe(emploiOccupe.getText().toString());
@@ -81,8 +81,10 @@ public class add_sal extends AppCompatActivity {
                 salaries.setSalaireBase(Integer.parseInt(salaireBase.getText().toString()));
                 salaries.setPrime(Integer.parseInt(prime.getText().toString()));
 
-                 long res=dataSource.insertSal(salaries);
-                        if(res ==-1){
+
+
+                 boolean res=dataSource.insertSal(salaries);
+                        if( false ){
                                 Toast.makeText(getApplicationContext(),"erreur!!",Toast.LENGTH_LONG).show();
                         }
                         else {

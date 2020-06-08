@@ -40,8 +40,7 @@ public class Salaries {
         return id;
     }
     public void setId(int id){
-        this.id=id;
-    }
+        this.id=id;}
 
     public String getNom() {
         return nom;
@@ -153,7 +152,7 @@ public class Salaries {
                 ", departement='" + departement + '\'' +
                 ", emploiOccupe='" + emploiOccupe + '\'' +
                 ", Anciennete=" + Anciennete +'\''+
-                ", salaireBase=" + salaireBase +", prime=" + prime +
+                ", salaireBase=" + salaireBase +'\''+", prime=" + prime +
                 '}';
     }
 }
