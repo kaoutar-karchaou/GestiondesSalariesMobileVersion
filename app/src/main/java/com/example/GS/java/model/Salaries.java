@@ -14,12 +14,14 @@ public class Salaries {
     private String departement ;
     private String emploiOccupe;
     private int Anciennete ;
-    private double salaireBase ;
+    private int salaireBase ;
+    private int prime;
 
     public Salaries() {
     }
 
-    public Salaries(String nom, String prenom, String cin, String adresse, String telephone, String email, String dateNaissance, String departement, String emploiOccupe, int anciennete, double salaireBase) {
+    public Salaries(int id, String nom, String prenom, String cin, String adresse, String telephone, String email, String dateNaissance, String departement, String emploiOccupe, int anciennete, int salaireBase, int prime) {
+        this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.cin = cin;
@@ -31,6 +33,7 @@ public class Salaries {
         this.emploiOccupe = emploiOccupe;
         Anciennete = anciennete;
         this.salaireBase = salaireBase;
+        this.prime = prime;
     }
 
     public int getId() {
@@ -124,8 +127,16 @@ public class Salaries {
         return salaireBase;
     }
 
-    public void setSalaireBase(double salaireBase) {
+    public void setSalaireBase(int salaireBase) {
         this.salaireBase = salaireBase;
+    }
+
+    public double getPrime() {
+        return prime;
+    }
+
+    public void setPrime(int prime) {
+        this.prime = prime;
     }
 
     @Override
@@ -141,8 +152,8 @@ public class Salaries {
                 ", dateNaissance=" + dateNaissance +
                 ", departement='" + departement + '\'' +
                 ", emploiOccupe='" + emploiOccupe + '\'' +
-                ", Anciennete=" + Anciennete +
-                ", salaireBase=" + salaireBase +
+                ", Anciennete=" + Anciennete +'\''+
+                ", salaireBase=" + salaireBase +", prime=" + prime +
                 '}';
     }
 }

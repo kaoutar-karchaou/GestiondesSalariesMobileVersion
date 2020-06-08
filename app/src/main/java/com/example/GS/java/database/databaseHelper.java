@@ -11,6 +11,10 @@ public class databaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME="contacts.db";
     public static final String TABLE_SAL="salaries";
     public static final String TABLE_USER="users";
+    private String sql="create table "+TABLE_SAL+" (id INTEGER primary key autoincrement, nom TEXT, prenom TEXT, email TEXT, " +
+            "telephone TEXT, cin TEXT , addresse TEXT, dateNaissance TEXT, departement TEXT , empoloiOccupe TEXT, anciennete INTEGER, salairebase INTEGER, prime INTEGER) ";
+
+    private String sqlite="create table "+TABLE_USER+" (login TEXT, password1 TEXT, password2 TEXT) ";
 
     public databaseHelper( Context context) {
         super(context, DATABASE_NAME, null , 1);
@@ -18,10 +22,7 @@ public class databaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql="create table "+TABLE_SAL+" (id INTEGER primary key autoincrement, nom TEXT, prenom TEXT, email TEXT, " +
-                "telephone TEXT, cin TEXT , addresse TEXT, dateNaissance TEXT, departement TEXT , empoloiOccupe TEXT, anciennete INTEGER, salairebase INTEGER) ";
 
-        String sqlite="create table "+TABLE_USER+" (login TEXT, password1 TEXT, password2 TEXT) ";
         db.execSQL(sql);
         db.execSQL(sqlite);
 

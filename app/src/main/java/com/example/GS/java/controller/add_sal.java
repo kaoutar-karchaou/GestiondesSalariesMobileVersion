@@ -16,6 +16,7 @@ import com.example.GS.java.model.Salaries;
 
 public class add_sal extends AppCompatActivity {
 
+
     EditText prenom;
     EditText nom;
     EditText cin;
@@ -27,14 +28,16 @@ public class add_sal extends AppCompatActivity {
     EditText anciennete;
     EditText salaireBase;
     EditText email;
+    EditText prime;
     Button btnSaveSal;
     Button btnExit;
-    SalariesDataSource dataSource;
+    SalariesDataSource dataSource= new SalariesDataSource(getApplicationContext());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_add_sal);
         prenom=findViewById(R.id.add_sal_prenom);
         nom=findViewById(R.id.add_sal_nom);
@@ -47,6 +50,7 @@ public class add_sal extends AppCompatActivity {
         emploiOccupe=findViewById(R.id.add_sal_emploi);
         anciennete=findViewById(R.id.add_sal_anciennete);
         salaireBase=findViewById(R.id.add_sal_salaire);
+        prime=findViewById(R.id.add_sal_prime);
 
         btnSaveSal=findViewById(R.id.add_sal_btn_save);
         btnExit=findViewById(R.id.add_sal_btn_exit);
@@ -55,11 +59,14 @@ public class add_sal extends AppCompatActivity {
         btnSaveSal.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 dataSource = new SalariesDataSource(getApplicationContext());
 
                 Salaries salaries = new Salaries();
-                int anc =Integer.parseInt(anciennete.getText().toString());
-                int salaire =Integer.parseInt(salaireBase.getText().toString());
+
+//                int anc =Integer.parseInt(anciennete.getText().toString());
+//                int salaire =Integer.parseInt(salaireBase.getText().toString());
+//                int pr =Integer.parseInt(prime.getText().toString());
 
                 salaries.setPrenom(prenom.getText().toString());
                 salaries.setNom(nom.getText().toString());
@@ -70,8 +77,9 @@ public class add_sal extends AppCompatActivity {
                 salaries.setDateNaissance(dateNaissance.getText().toString());
                 salaries.setDepartement(departement.getText().toString());
                 salaries.setEmploiOccupe(emploiOccupe.getText().toString());
-                salaries.setAnciennete(anc);
-                salaries.setSalaireBase(salaire);
+                salaries.setAnciennete(Integer.parseInt(anciennete.getText().toString()));
+                salaries.setSalaireBase(Integer.parseInt(salaireBase.getText().toString()));
+                salaries.setPrime(Integer.parseInt(prime.getText().toString()));
 
                  long res=dataSource.insertSal(salaries);
                         if(res ==-1){

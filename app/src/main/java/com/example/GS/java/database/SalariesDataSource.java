@@ -23,6 +23,7 @@ private SQLiteDatabase db;
 
     //ajouter un Salarié
     public long insertSal (Salaries salarie){
+
         db=mydb.getWritableDatabase();
 
         ContentValues values=new ContentValues();
@@ -38,8 +39,9 @@ private SQLiteDatabase db;
         values.put("anciennete", salarie.getAnciennete());
         values.put("salairebase", salarie.getSalaireBase());
         values.put("dateNaissance", salarie.getDateNaissance());
+        values.put("prime", salarie.getPrime());
 
-        long result = db.insert(mydb.TABLE_SAL,null,values);
+        long result = db.insert("TABLE_SAL",null, values);
 
         return result;
 
@@ -49,8 +51,7 @@ private SQLiteDatabase db;
 
     public List<Salaries> getAllSalaries(){
         mydb.getReadableDatabase();
-        List<Salaries> salaries= new
-                ArrayList<Salaries>();
+        List<Salaries> salaries= new ArrayList<Salaries>();
         Cursor cursor = db.rawQuery("SELECT * FROM salaries", null );
         cursor.moveToFirst();
         Salaries salarie = new Salaries();
@@ -67,6 +68,7 @@ private SQLiteDatabase db;
             salarie.setEmploiOccupe(cursor.getString(9));
             salarie.setAnciennete(cursor.getInt(10));
             salarie.setSalaireBase(cursor.getInt(11));
+            salarie.setPrime(cursor.getInt(11));
 
             salaries.add(salarie);
             cursor.moveToNext();
