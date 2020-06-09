@@ -31,7 +31,7 @@ public class Salaries {
         this.dateNaissance = dateNaissance;
         this.departement = departement;
         this.emploiOccupe = emploiOccupe;
-        Anciennete = anciennete;
+        this.Anciennete = anciennete;
         this.salaireBase = salaireBase;
         this.prime = prime;
     }

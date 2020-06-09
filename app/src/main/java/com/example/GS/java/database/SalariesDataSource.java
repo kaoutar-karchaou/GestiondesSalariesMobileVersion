@@ -17,7 +17,7 @@ private  databaseHelper mydb;
 private SQLiteDatabase db;
 
     public SalariesDataSource(Context context) {
-        this.mydb = new databaseHelper(context);
+        mydb = new databaseHelper(context);
     }
 
 
@@ -33,7 +33,7 @@ private SQLiteDatabase db;
         values.put("cin",salarie.getCin());
         values.put("addresse",salarie.getAdresse());
         values.put("telephone",salarie.getTelephone());
-        values.put("mail",salarie.getEmail());
+        values.put("email",salarie.getEmail());
         values.put("dateNaissance", salarie.getDateNaissance());
         values.put("departement",salarie.getDepartement());
         values.put("emploiOccupe", salarie.getEmploiOccupe());
@@ -41,7 +41,7 @@ private SQLiteDatabase db;
         values.put("salairebase", salarie.getSalaireBase());
         values.put("prime", salarie.getPrime());
 
-        long result = db.insert("TABLE_SAL",null, values);
+        long result = db.insert("salaries",null, values);
 
         if (result==-1) return false;
         else return true;
@@ -51,14 +51,16 @@ private SQLiteDatabase db;
     //afficher liste des salariés
 
     public List<Salaries> getAllSalaries(){
-        mydb.getReadableDatabase();
+
+        db=mydb.getReadableDatabase();
         List<Salaries> salaries= new ArrayList<Salaries>();
-        Cursor cursor = db.rawQuery("SELECT * FROM salaries", null );
+        Cursor cursor = db.rawQuery("SELECT * FROM Salaries", null );
         cursor.moveToFirst();
+
         Salaries salarie = new Salaries();
 
         while (!cursor.isAfterLast()){
-            salarie.setId(cursor.getInt(0));
+            //salarie.setId(cursor.getInt(0));
             salarie.setNom(cursor.getString(1));
             salarie.setPrenom(cursor.getString(2));
             salarie.setCin(cursor.getString(3));
@@ -69,7 +71,7 @@ private SQLiteDatabase db;
             salarie.setDepartement(cursor.getString(8));
             salarie.setEmploiOccupe(cursor.getString(9));
             salarie.setAnciennete(cursor.getInt(10));
-            salarie.setSalaireBase(cursor.getInt(11));
+            salarie.setSalaireBase(cursor.getInt(12));
             salarie.setPrime(cursor.getInt(12));
 
             salaries.add(salarie);

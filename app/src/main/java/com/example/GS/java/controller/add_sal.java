@@ -62,28 +62,28 @@ public class add_sal extends AppCompatActivity {
 
                 dataSource = new SalariesDataSource(getApplicationContext());
 
-                Salaries salaries = new Salaries();
+                Salaries s = new Salaries();
 
 //                int anc =Integer.parseInt(anciennete.getText().toString());
 //                int salaire =Integer.parseInt(salaireBase.getText().toString());
 //                int pr =Integer.parseInt(prime.getText().toString());
 
-                salaries.setNom(nom.getText().toString());
-                salaries.setPrenom(prenom.getText().toString());
-                salaries.setCin(cin.getText().toString());
-                salaries.setAdresse(addresse.getText().toString());
-                salaries.setTelephone(telephone.getText().toString());
-                salaries.setEmail(email.getText().toString());
-                salaries.setDateNaissance(dateNaissance.getText().toString());
-                salaries.setDepartement(departement.getText().toString());
-                salaries.setEmploiOccupe(emploiOccupe.getText().toString());
-                salaries.setAnciennete(Integer.parseInt(anciennete.getText().toString()));
-                salaries.setSalaireBase(Integer.parseInt(salaireBase.getText().toString()));
-                salaries.setPrime(Integer.parseInt(prime.getText().toString()));
+                s.setNom(nom.getText().toString());
+                s.setPrenom(prenom.getText().toString());
+                s.setCin(cin.getText().toString());
+                s.setAdresse(addresse.getText().toString());
+                s.setTelephone(telephone.getText().toString());
+                s.setEmail(email.getText().toString());
+                s.setDateNaissance(dateNaissance.getText().toString());
+                s.setDepartement(departement.getText().toString());
+                s.setEmploiOccupe(emploiOccupe.getText().toString());
+                s.setAnciennete(Integer.parseInt(anciennete.getText().toString()));
+                s.setSalaireBase(Integer.parseInt(salaireBase.getText().toString()));
+                s.setPrime(Integer.parseInt(prime.getText().toString()));
 
 
 
-                 boolean res=dataSource.insertSal(salaries);
+                 boolean res=dataSource.insertSal(s);
                         if( false ){
                                 Toast.makeText(getApplicationContext(),"erreur!!",Toast.LENGTH_LONG).show();
                         }
