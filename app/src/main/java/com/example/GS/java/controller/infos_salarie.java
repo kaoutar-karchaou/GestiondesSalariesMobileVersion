@@ -2,6 +2,7 @@ package com.example.GS.java.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -42,6 +43,9 @@ public class infos_salarie extends AppCompatActivity {
         String sa = getIntent().getStringExtra("keysa");
         String pr = getIntent().getStringExtra("keypr");
 
+        Intent intent = getIntent();
+        int in = intent.getIntExtra("i",0);
+
 
 
         nom.setText(n);
@@ -56,6 +60,7 @@ public class infos_salarie extends AppCompatActivity {
         anc.setText(an);
         salaire.setText(sa);
         prime.setText(pr);
+        saln.setText(" "+in);
 
 
     }

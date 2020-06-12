@@ -93,6 +93,9 @@ public class add_sal extends AppCompatActivity {
                /* int an =Integer.parseInt(*/ String an=anciennete.getText().toString();
                 /*int sa = Integer.parseInt(*/String sa =salaireBase.getText().toString();
                 /*int pr =Integer.parseInt(*/String pr = prime.getText().toString();
+               // int i=2;
+
+                //test d'ajout de salaire et prime
                 int salaireetprime =Integer.parseInt(sa)+Integer.parseInt(pr);
                 //////////////////////////////////////////////////////
                  boolean res=dataSource.insertSal(s);
@@ -115,6 +118,7 @@ public class add_sal extends AppCompatActivity {
                             intent.putExtra("keyan", an);
                             intent.putExtra("keysa", sa);
                             intent.putExtra("keypr", pr);
+                            intent.putExtra("i", salaireetprime);
                           //  intent.putExtra("salpr",salaireetprime);
 
                             startActivity(intent);
