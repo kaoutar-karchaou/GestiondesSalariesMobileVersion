@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.inscription">
+    android:background="@drawable/salairephoto"
+    tools:context=".java.controller.Registration">
 
     <TextView
         android:id="@+id/reg_title"
@@ -12,6 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:text="@string/reg_title"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,6 +29,8 @@
         android:gravity="center"
         android:hint="@string/reg_log"
         android:inputType="textPersonName"
+        android:textColorHint="@color/common_google_signin_btn_text_light_pressed"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_title" />
@@ -38,6 +44,9 @@
         android:gravity="center"
         android:hint="@string/reg_email"
         android:inputType="textPersonName"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"
+        android:textColorHint="@android:color/black"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +58,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="92dp"
         android:text="@string/btn_register_validate"
+        android:textColorHint="@android:color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.854"
@@ -65,6 +76,8 @@
         android:gravity="center"
         android:hint="@string/reg_pswd1"
         android:inputType="textPassword"
+        android:textColorHint="@color/common_google_signin_btn_text_light_pressed"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,6 +90,8 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:text="@string/btn_register_cancel"
+        android:textColorHint="@android:color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_pswd1" />
