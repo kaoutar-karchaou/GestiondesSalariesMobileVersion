@@ -7,6 +7,24 @@
     tools:context=".java.controller.infos_salarie">
 
     <TextView
+        android:id="@+id/salNet"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginRight="92dp"
+        android:text="@string/add_sal_btn_salaireNet"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/show_sal"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pr"
+        app:layout_constraintVertical_bias="0.42" />
+
+    <TextView
         android:id="@+id/bp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,6 +32,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="50dp"
         android:text="@string/bp"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"
         app:layout_constraintEnd_toStartOf="@+id/show_nom"
         app:layout_constraintHorizontal_bias="0.27"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,6 +66,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="40dp"
         android:text="@string/add_sal_btn_cin"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"
         app:layout_constraintEnd_toStartOf="@+id/show_c"
         app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +78,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="30dp"
         android:text="@string/add_sal_btn_departement"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"
         app:layout_constraintEnd_toStartOf="@+id/show_dpt"
         app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,6 +90,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="30dp"
         android:text="@string/add_sal_btn_telephone"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"
         app:layout_constraintEnd_toStartOf="@+id/show_t"
         app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,6 +102,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="30dp"
         android:text="@string/add_sal_btn_addresse"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/show_a"
         app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,22 +110,20 @@
 
     <TextView
         android:id="@+id/sa"
-        android:layout_width="100dp"
-        android:layout_height="0dp"
+        android:layout_width="120dp"
+        android:layout_height="20dp"
         android:layout_marginTop="30dp"
         android:text="@string/add_sal_btn_salaire"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/show_sa"
-        app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/an" />
 
     <TextView
         android:id="@+id/show_sa"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
+        android:layout_marginTop="30dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_an" />
@@ -113,6 +134,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="30dp"
         android:text="@string/add_sal_btn_mail"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/show_e"
         app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,6 +146,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="30dp"
         android:text="@string/add_sal_btn_emploi"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/show_emp"
         app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,6 +158,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="30dp"
         android:text="@string/add_sal_btn_anciennete"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/show_an"
         app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
@@ -146,6 +170,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="30dp"
         android:text="@string/add_sal_btn_date"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/show_d"
         app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
@@ -153,77 +178,63 @@
 
     <TextView
         android:id="@+id/show_c"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_nom" />
 
     <TextView
         android:id="@+id/show_dpt"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginRight="116dp"
+        android:layout_marginTop="30dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_d" />
 
     <TextView
         android:id="@+id/show_e"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
+        android:layout_marginTop="30dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_t" />
 
     <TextView
         android:id="@+id/show_an"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="31dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_emp" />
 
     <TextView
         android:id="@+id/show_t"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
+        android:layout_marginTop="30dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_a" />
 
     <TextView
         android:id="@+id/show_a"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
+        android:layout_marginTop="30dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_c" />
 
     <TextView
         android:id="@+id/show_pr"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_sa" />
@@ -234,6 +245,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="30dp"
         android:text="@string/add_sal_prime"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"
         app:layout_constraintEnd_toStartOf="@+id/show_pr"
         app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
@@ -241,30 +253,26 @@
 
     <TextView
         android:id="@+id/show_d"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
+        android:layout_marginTop="30dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_e" />
 
     <TextView
         android:id="@+id/show_emp"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
+        android:layout_marginTop="30dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_dpt" />
 
     <TextView
         android:id="@+id/show_sal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
         android:layout_marginTop="40dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -273,22 +281,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_pr"
         app:layout_constraintVertical_bias="0.549" />
-
-    <TextView
-        android:id="@+id/salNet"
-        android:layout_width="0dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginLeft="53dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="92dp"
-        android:layout_marginRight="92dp"
-        android:text="@string/add_sal_btn_salaireNet"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/show_sal"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pr"
-        app:layout_constraintVertical_bias="0.36" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

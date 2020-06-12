@@ -14,6 +14,8 @@ import com.example.GS.R;
 import com.example.GS.java.database.SalariesDataSource;
 import com.example.GS.java.model.Salaries;
 
+import java.text.DecimalFormat;
+
 public class add_sal extends AppCompatActivity {
 
 
@@ -167,17 +169,15 @@ public class add_sal extends AppCompatActivity {
 
                 double salaireNet = salaireBrut - cnss -cimr - impot;
 
-                System.out.println(salaireNet);
-
                 //////////////////////////////////////////////////////
                  boolean res=dataSource.insertSal(s);
                         if( false ){
                                 Toast.makeText(getApplicationContext(),"erreur!!",Toast.LENGTH_LONG).show();
-                                System.out.println("erreur");
+
                         }
                         else {
                             Toast.makeText(getApplicationContext(), "success!!", Toast.LENGTH_LONG).show();
-                            System.out.println("success");
+
                             //Intent intent= new Intent(getApplicationContext(),liste_Salaries.class);
                             Intent intent = new Intent(add_sal.this, infos_salarie.class);
                             intent.putExtra("keynom", n);
