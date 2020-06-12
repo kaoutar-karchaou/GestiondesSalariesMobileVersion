@@ -18,6 +18,7 @@
     <string name="add_sal_btn_salaire">Salaire de Base</string>
     <string name="add_sal_btn_anciennete">Ancienneté</string>
     <string name="add_sal_prime">Prime</string>
+    <string name="add_sal_btn_salaireNet">Salaire Net</string>
     <string name="add_sal_title">Ajouter un nouveau salarié</string>
     <string name="email">Entrez votre email</string>
     <string name="pswd">Entrez le mot de passe</string>

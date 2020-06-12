@@ -59,7 +59,7 @@ private SQLiteDatabase db;
         Salaries salarie = new Salaries();
 
         while (!cursor.isAfterLast()){
-            //salarie.setId(cursor.getInt(0));
+            salarie.setId(cursor.getInt(0));
             salarie.setNom(cursor.getString(1));
             salarie.setPrenom(cursor.getString(2));
             salarie.setCin(cursor.getString(3));
@@ -72,12 +72,43 @@ private SQLiteDatabase db;
             salarie.setAnciennete(cursor.getInt(10));
             salarie.setSalaireBase(cursor.getInt(12));
             salarie.setPrime(cursor.getInt(12));
-
+            System.out.println(salarie);
             salaries.add(salarie);
             cursor.moveToNext();
         }
         cursor.close();
+        System.out.println(salarie);
         return salaries;
+
+    }
+
+    public Salaries getSalaries(String nom){
+
+        db=mydb.getReadableDatabase();
+
+        String query = "SELECT * FROM Salaries WHERE nom=?";
+        Cursor c = db.rawQuery(query, new String[]{nom});
+
+
+        Salaries salarie = new Salaries();
+
+        while (!c.isAfterLast()){
+            //salarie.setId(cursor.getInt(0));
+            salarie.setNom(c.getString(1));
+            salarie.setPrenom(c.getString(2));
+            salarie.setCin(c.getString(3));
+            salarie.setAdresse(c.getString(4));
+            salarie.setTelephone(c.getString(5));
+            salarie.setEmail(c.getString(6));
+            salarie.setDateNaissance(c.getString(7));
+            salarie.setDepartement(c.getString(8));
+            salarie.setEmploiOccupe(c.getString(9));
+            salarie.setAnciennete(c.getInt(10));
+            salarie.setSalaireBase(c.getInt(12));
+            salarie.setPrime(c.getInt(12));
+        }
+        c.close();
+        return salarie;
 
     }
 }

@@ -16,9 +16,6 @@ public class Salaries {
     private int Anciennete ;
     private int salaireBase ;
     private int prime;
-    final private double  p_cnss = 0.0429;
-    final private double p_cimr = 0.06;
-
 
     public Salaries() {
     }

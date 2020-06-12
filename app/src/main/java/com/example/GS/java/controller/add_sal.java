@@ -93,19 +93,93 @@ public class add_sal extends AppCompatActivity {
                /* int an =Integer.parseInt(*/ String an=anciennete.getText().toString();
                 /*int sa = Integer.parseInt(*/String sa =salaireBase.getText().toString();
                 /*int pr =Integer.parseInt(*/String pr = prime.getText().toString();
-               // int i=2;
 
-                //test d'ajout de salaire et prime
-                int salaireetprime =Integer.parseInt(sa)+Integer.parseInt(pr);
+
+                int anc=Integer.parseInt(an);
+                int salBase=Integer.parseInt(sa);
+                double primeAnc;
+                double cnss;
+                double cimr;
+                double impot;
+
+                // calculer prime anciennete
+
+                int prm=Integer.parseInt(pr);
+                if(anc<2){
+                    primeAnc=0;
+                }
+                else if(anc>2 & anc<5){
+                    primeAnc=salBase * 0.05;
+                }
+                else if(anc>5 & anc<12){
+                    primeAnc=salBase * 0.1;
+                }
+                else if(anc>12 & anc<20){
+                    primeAnc=salBase * 0.15;
+                }
+                else if(anc>20 & anc<25){
+                    primeAnc=salBase * 0.2;
+                }
+                else {
+                    primeAnc=salBase * 0.25;
+                }
+
+                //SalaireBrut = SalaireBase + primeAnciennete + prime
+
+                double salaireBrut = salBase + primeAnc + prm;
+
+                // calculer prelevement cnss
+
+                if(salaireBrut<=6000){
+                    cnss =salaireBrut * 0.0429;
+                }
+                else {
+                    cnss = 6000 * 0.0429;
+                }
+
+                //calculer prelevement cimr
+
+                cimr = salaireBrut * 0.06;
+
+                // calculer prelevemnt des impots
+
+                if(salaireBrut <=2500){
+                    impot= salaireBrut* 0;
+                }
+                else if( salaireBrut > 2500 & salaireBrut< 4167){
+                    impot = salaireBrut * 0.1;
+                }
+                else if( salaireBrut > 4166 & salaireBrut< 5001){
+                    impot = salaireBrut * 0.2;
+                }
+
+                else if( salaireBrut > 5000 & salaireBrut< 6667){
+                    impot = salaireBrut * 0.3;
+                }
+                else if( salaireBrut > 6666 & salaireBrut< 15001){
+                    impot = salaireBrut * 0.3;
+                }
+                else {
+                    impot = salaireBrut * 0.38;
+                }
+
+                // calculer salaire net
+
+                double salaireNet = salaireBrut - cnss -cimr - impot;
+
+                System.out.println(salaireNet);
+
                 //////////////////////////////////////////////////////
                  boolean res=dataSource.insertSal(s);
                         if( false ){
                                 Toast.makeText(getApplicationContext(),"erreur!!",Toast.LENGTH_LONG).show();
+                                System.out.println("erreur");
                         }
                         else {
                             Toast.makeText(getApplicationContext(), "success!!", Toast.LENGTH_LONG).show();
+                            System.out.println("success");
                             //Intent intent= new Intent(getApplicationContext(),liste_Salaries.class);
-                            Intent intent = new Intent(getApplicationContext(), infos_salarie.class);
+                            Intent intent = new Intent(add_sal.this, infos_salarie.class);
                             intent.putExtra("keynom", n);
                             intent.putExtra("keyprenom", p);
                             intent.putExtra("keyc", c);
@@ -118,11 +192,9 @@ public class add_sal extends AppCompatActivity {
                             intent.putExtra("keyan", an);
                             intent.putExtra("keysa", sa);
                             intent.putExtra("keypr", pr);
-                            intent.putExtra("i", salaireetprime);
-                          //  intent.putExtra("salpr",salaireetprime);
+                            intent.putExtra("i", salaireNet);
 
                             startActivity(intent);
-                            //startActivity(intent);
                         }
 
             }

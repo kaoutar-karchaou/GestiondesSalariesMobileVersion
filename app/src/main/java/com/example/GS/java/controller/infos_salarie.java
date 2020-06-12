@@ -44,7 +44,7 @@ public class infos_salarie extends AppCompatActivity {
         String pr = getIntent().getStringExtra("keypr");
 
         Intent intent = getIntent();
-        int in = intent.getIntExtra("i",0);
+        double in = intent.getDoubleExtra("i",0.0);
 
 
 
@@ -60,7 +60,7 @@ public class infos_salarie extends AppCompatActivity {
         anc.setText(an);
         salaire.setText(sa);
         prime.setText(pr);
-        saln.setText(" "+in);
+        saln.setText(String.valueOf(in));
 
 
     }
