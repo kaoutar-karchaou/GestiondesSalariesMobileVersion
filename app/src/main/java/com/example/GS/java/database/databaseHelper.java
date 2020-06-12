@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class databaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME="contacts.db";
-    public static final String TABLE_SAL="salaries";
+    public static final String TABLE_SAL="Salaries";
     public static final String TABLE_USER="users";
     private String sql="create table salaries (id INTEGER primary key autoincrement, nom TEXT, prenom TEXT, email TEXT, " +
             "telephone TEXT, cin TEXT , addresse TEXT, dateNaissance TEXT, departement TEXT , emploiOccupe TEXT, anciennete INTEGER, salairebase INTEGER, prime INTEGER) ";

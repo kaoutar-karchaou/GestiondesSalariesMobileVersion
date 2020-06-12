@@ -56,7 +56,6 @@ private SQLiteDatabase db;
         List<Salaries> salaries= new ArrayList<Salaries>();
         Cursor cursor = db.rawQuery("SELECT * FROM Salaries", null );
         cursor.moveToFirst();
-
         Salaries salarie = new Salaries();
 
         while (!cursor.isAfterLast()){

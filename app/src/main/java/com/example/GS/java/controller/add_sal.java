@@ -80,17 +80,45 @@ public class add_sal extends AppCompatActivity {
                 s.setAnciennete(Integer.parseInt(anciennete.getText().toString()));
                 s.setSalaireBase(Integer.parseInt(salaireBase.getText().toString()));
                 s.setPrime(Integer.parseInt(prime.getText().toString()));
-
-
-
+                //////////////////////////////////////////////////////
+                String n = nom.getText().toString();
+                String p = prenom.getText().toString();
+                String c = cin.getText().toString();
+                String a = addresse.getText().toString();
+                String t = telephone.getText().toString();
+                String e = email.getText().toString();
+                String d = dateNaissance.getText().toString();
+                String dpt = departement.getText().toString();
+                String empl = emploiOccupe.getText().toString();
+               /* int an =Integer.parseInt(*/ String an=anciennete.getText().toString();
+                /*int sa = Integer.parseInt(*/String sa =salaireBase.getText().toString();
+                /*int pr =Integer.parseInt(*/String pr = prime.getText().toString();
+                int salaireetprime =Integer.parseInt(sa)+Integer.parseInt(pr);
+                //////////////////////////////////////////////////////
                  boolean res=dataSource.insertSal(s);
                         if( false ){
                                 Toast.makeText(getApplicationContext(),"erreur!!",Toast.LENGTH_LONG).show();
                         }
                         else {
-                            Toast.makeText(getApplicationContext(),"success!!",Toast.LENGTH_LONG).show();
-                            Intent intent= new Intent(getApplicationContext(),liste_Salaries.class);
+                            Toast.makeText(getApplicationContext(), "success!!", Toast.LENGTH_LONG).show();
+                            //Intent intent= new Intent(getApplicationContext(),liste_Salaries.class);
+                            Intent intent = new Intent(getApplicationContext(), infos_salarie.class);
+                            intent.putExtra("keynom", n);
+                            intent.putExtra("keyprenom", p);
+                            intent.putExtra("keyc", c);
+                            intent.putExtra("keya", a);
+                            intent.putExtra("keyt", t);
+                            intent.putExtra("keye", e);
+                            intent.putExtra("keyd", d);
+                            intent.putExtra("keydpt", dpt);
+                            intent.putExtra("keyempl", empl);
+                            intent.putExtra("keyan", an);
+                            intent.putExtra("keysa", sa);
+                            intent.putExtra("keypr", pr);
+                          //  intent.putExtra("salpr",salaireetprime);
+
                             startActivity(intent);
+                            //startActivity(intent);
                         }
 
             }

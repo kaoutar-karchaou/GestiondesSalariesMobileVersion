@@ -30,5 +30,6 @@
     <string name="reg_log">veuillez saisir un nom d\'utilisateur valide</string>
     <string name="reg_email">veuillez saisir votre Email</string>
     <string name="reg_pswd1">veuillez saisir un mot de passe</string>
+    <string name="bp">Le Bulletin de paie de :</string>
 
 </resources>
