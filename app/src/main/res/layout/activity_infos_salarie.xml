@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
     tools:context=".java.controller.infos_salarie">
 
     <TextView
@@ -12,17 +13,17 @@
         android:layout_height="20dp"
         android:layout_marginStart="53dp"
         android:layout_marginLeft="53dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="92dp"
         android:layout_marginRight="92dp"
         android:text="@string/add_sal_btn_salaireNet"
         android:textColor="@color/common_google_signin_btn_text_light_pressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/show_sal"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.171"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pr"
-        app:layout_constraintVertical_bias="0.42" />
+        app:layout_constraintVertical_bias="0.479" />
 
     <TextView
         android:id="@+id/bp"
@@ -76,11 +77,11 @@
         android:id="@+id/dpt"
         android:layout_width="100dp"
         android:layout_height="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="32dp"
         android:text="@string/add_sal_btn_departement"
         android:textColor="@color/common_google_signin_btn_text_light_pressed"
         app:layout_constraintEnd_toStartOf="@+id/show_dpt"
-        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintHorizontal_bias="0.423"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/d" />
 
@@ -112,10 +113,11 @@
         android:id="@+id/sa"
         android:layout_width="120dp"
         android:layout_height="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="37dp"
         android:text="@string/add_sal_btn_salaire"
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/show_sa"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/an" />
 
@@ -243,11 +245,11 @@
         android:id="@+id/pr"
         android:layout_width="100dp"
         android:layout_height="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="37dp"
         android:text="@string/add_sal_prime"
         android:textColor="@color/common_google_signin_btn_text_light_pressed"
         app:layout_constraintEnd_toStartOf="@+id/show_pr"
-        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintHorizontal_bias="0.423"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sa" />
 
