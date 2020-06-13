@@ -82,33 +82,13 @@ private SQLiteDatabase db;
 
     }
 
-    public Salaries getSalaries(String nom){
-
+  public  Cursor readSal(){
+        String query="SELECT * FROM Salaries";
         db=mydb.getReadableDatabase();
-
-        String query = "SELECT * FROM Salaries WHERE nom=?";
-        Cursor c = db.rawQuery(query, new String[]{nom});
-
-
-        Salaries salarie = new Salaries();
-
-        while (!c.isAfterLast()){
-            //salarie.setId(cursor.getInt(0));
-            salarie.setNom(c.getString(1));
-            salarie.setPrenom(c.getString(2));
-            salarie.setCin(c.getString(3));
-            salarie.setAdresse(c.getString(4));
-            salarie.setTelephone(c.getString(5));
-            salarie.setEmail(c.getString(6));
-            salarie.setDateNaissance(c.getString(7));
-            salarie.setDepartement(c.getString(8));
-            salarie.setEmploiOccupe(c.getString(9));
-            salarie.setAnciennete(c.getInt(10));
-            salarie.setSalaireBase(c.getInt(12));
-            salarie.setPrime(c.getInt(12));
+        Cursor cursor = null;
+        if(db != null){
+           cursor= db.rawQuery(query, null);
         }
-        c.close();
-        return salarie;
-
+        return  cursor;
     }
 }
