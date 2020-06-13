@@ -28,7 +28,7 @@ public class liste_Salaries extends AppCompatActivity {
    // ListView listeSal;
     RecyclerView recyclerView;
     SalariesDataSource dataSource=new SalariesDataSource(liste_Salaries.this);
-    ArrayList<String> sal_nom,sal_prenom,sal_id;
+    ArrayList<String> sal_nom,sal_prenom,sal_id,sal_ad,sal_tel,sal_mail,sal_empl,sal_dpt,sal_sal,sal_anc,sal_prime,sal_cin,sal_dn;
     CustomAdapter customAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +46,19 @@ public class liste_Salaries extends AppCompatActivity {
         sal_nom = new ArrayList<>();
         sal_prenom = new ArrayList<>();
         sal_id = new ArrayList<>();
+        sal_ad= new ArrayList<>();
+        sal_tel= new ArrayList<>();
+        sal_mail= new ArrayList<>();
+        sal_empl= new ArrayList<>();
+        sal_dpt= new ArrayList<>();
+        sal_sal= new ArrayList<>();
+        sal_anc= new ArrayList<>();
+        sal_prime= new ArrayList<>();
+        sal_dn=new ArrayList<>();
+        sal_cin=new ArrayList<>();
 
         displayData();
-        customAdapter=new CustomAdapter(liste_Salaries.this,this,sal_id, sal_nom, sal_prenom);
+        customAdapter=new CustomAdapter(liste_Salaries.this,this,sal_id,sal_dn, sal_nom,sal_cin, sal_prenom,sal_ad,sal_tel,sal_mail,sal_empl,sal_dpt,sal_sal,sal_anc,sal_prime);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(liste_Salaries.this));
     }
@@ -62,6 +72,16 @@ public class liste_Salaries extends AppCompatActivity {
                 sal_id.add(cursor.getString(0));
                 sal_nom.add(cursor.getString(1));
                 sal_prenom.add(cursor.getString(2));
+                sal_cin.add(cursor.getString(3));
+                sal_ad.add(cursor.getString(4));
+                sal_tel.add(cursor.getString(5));
+                sal_mail.add(cursor.getString(6));
+                sal_dn.add(cursor.getString(7));
+                sal_dpt.add(cursor.getString(8));
+                sal_empl.add(cursor.getString(9));
+                sal_anc.add(cursor.getString(10));
+                sal_sal.add(cursor.getString(11));
+                sal_prime.add(cursor.getString(12));
             }
         }
     }

@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".java.controller.authentificate"/>
+        <activity android:name=".java.controller.update"></activity>
+        <activity android:name=".java.controller.authentificate" />
         <activity android:name=".java.controller.add_sal" />
         <activity android:name=".java.controller.liste_Salaries" />
         <activity android:name=".java.controller.accueil" />
@@ -19,7 +20,7 @@
         <activity android:name=".java.controller.Registration">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-s
+                s
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
