@@ -49,14 +49,15 @@ protected void onCreate(Bundle savedInstanceState) {
         btnEdit=findViewById(R.id.edit_sal_btn);
         btnExit=findViewById(R.id.edit_sal_btn_exit);
 
+
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
             }
         });
         getIntentData();
-    dataSource = new SalariesDataSource(getApplicationContext());
-    dataSource.updateData(id,n,p,c,ad,tel,m,dn,d,em,a,s,pr);
+        dataSource = new SalariesDataSource(getApplicationContext());
+        dataSource.updateData(id,n,p,c,ad,tel,m,dn,d,em,a,s,pr);
         }
          void  getIntentData(){
     //getting data from intent
@@ -79,14 +80,14 @@ protected void onCreate(Bundle savedInstanceState) {
               nom.setText(n);
               cin.setText(c);
               addresse.setText(ad);
-             telephone.setText(tel);
+              telephone.setText(tel);
               dateNaissance.setText(dn);
               departement.setText(d);
               emploiOccupe.setText(em);
               anciennete.setText(a);
-             salaireBase.setText(s);
-             email.setText(m);
-             prime.setText(pr);
+              salaireBase.setText(s);
+              email.setText(m);
+              prime.setText(pr);
 
          }
         }

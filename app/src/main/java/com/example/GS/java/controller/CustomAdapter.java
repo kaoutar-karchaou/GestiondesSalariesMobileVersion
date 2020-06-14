@@ -21,7 +21,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     private Context context;
     private Activity activity;
     private ArrayList sal_id,sal_nom,sal_prenom,sal_cin,sal_ad,sal_tel,sal_mail,sal_empl,sal_dpt,sal_sal,sal_anc,sal_prime,sal_dn;
-    int postion;
+    //int postion;
     CustomAdapter(Activity activity,Context context, ArrayList sal_id, ArrayList sal_nom, ArrayList sal_prenom,
                   ArrayList sal_ad,ArrayList sal_tel, ArrayList sal_mail, ArrayList sal_empl, ArrayList sal_dpt,
                   ArrayList sal_sal, ArrayList sal_anc, ArrayList sal_prime, ArrayList sal_cin,ArrayList sal_dn){
@@ -48,7 +48,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     holder.salId.setText(String.valueOf(sal_id.get(position)));
     holder.salP.setText(String.valueOf(sal_prenom.get(position)));
     holder.salN.setText(String.valueOf(sal_nom.get(position)));
-    this.postion=position;
+    //this.postion=position;
     holder.updateActivity.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -63,10 +63,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
          intent.putExtra("dn",String.valueOf(sal_dn.get(position)));
          intent.putExtra("d",String.valueOf(sal_dpt.get(position)));
          intent.putExtra("em",String.valueOf(sal_empl.get(position)));
-         intent.putExtra("a",Integer.valueOf((Integer)sal_anc.get(position)));
-         intent.putExtra("s",Integer.valueOf((Integer)sal_sal.get(position)));
-         intent.putExtra("pr", (Integer) sal_prime.get(position));
-         activity.startActivityForResult(intent,1);
+         intent.putExtra("a",String.valueOf(sal_anc.get(position)));
+         intent.putExtra("s",String.valueOf(sal_sal.get(position)));
+         intent.putExtra("pr",String.valueOf(sal_prime.get(position)));
+         activity.startActivity(intent);
         }
     });
 
