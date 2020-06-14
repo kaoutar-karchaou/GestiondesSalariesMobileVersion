@@ -29,7 +29,6 @@ public class update extends AppCompatActivity {
         Button btnExit;
         String id,n,p,c,ad,dn,m,tel,em,d;
              int  s, a,pr;
-    SalariesDataSource dataSource;
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +51,8 @@ protected void onCreate(Bundle savedInstanceState) {
         btnExit=findViewById(R.id.edit_sal_btn_exit);
 
 
+
+
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,8 +60,8 @@ protected void onCreate(Bundle savedInstanceState) {
                 mydb.updateData(id,n,p,c,ad,tel,m,dn,d,em,a,s,pr);
             }
         });
-        getIntentData();
 
+        getIntentData();
         }
          public void  getIntentData(){
     //getting data from intent
@@ -96,6 +97,7 @@ protected void onCreate(Bundle savedInstanceState) {
                  anciennete.setInputType(a);
                  salaireBase.setInputType(s);
                  prime.setInputType(pr);
+
              }
              else{
                  Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
