@@ -1,5 +1,6 @@
 package com.example.GS.java.controller;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -51,7 +52,13 @@ protected void onCreate(Bundle savedInstanceState) {
         btnEdit=findViewById(R.id.edit_sal_btn);
         btnExit=findViewById(R.id.edit_sal_btn_exit);
 
+        //we call this
+        getIntentData();
 
+        ActionBar ab = getSupportActionBar();
+            if (ab != null) {
+                ab.setTitle(id);
+            }
 
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
@@ -59,10 +66,22 @@ protected void onCreate(Bundle savedInstanceState) {
             public void onClick(View v) {
                 databaseHelper mydb= new databaseHelper(update.this);
                 mydb.updateData(id,n,p,c,ad,tel,m,dn,d,em,a,s,pr);
+                n= nom.getText().toString().trim();
+                p= prenom.getText().toString().trim();
+                c= cin.getText().toString().trim();
+                ad= addresse.getText().toString().trim();
+                tel= telephone.getText().toString().trim();
+                m= email.getText().toString().trim();
+                em= emploiOccupe.getText().toString().trim();
+                a= Integer.parseInt(anciennete.getText().toString().trim());
+                s= Integer.parseInt(salaireBase.getText().toString().trim());
+                pr= Integer.parseInt(prime.getText().toString().trim());
+
+
             }
         });
 
-        getIntentData();
+
         }
          public void  getIntentData(){
             //getting data from intent
