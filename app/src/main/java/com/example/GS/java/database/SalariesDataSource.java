@@ -94,29 +94,5 @@ private SQLiteDatabase db;
         return  cursor;
     }
 
-  public void updateData(String row_id, String nom, String prenom, String cin, String adress, String tel ,String mail,String dn, String dpt,
-                    String empl, int an, int sb, int prime ){
-        db=mydb.getReadableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("nom",nom);
-        values.put("prenom",prenom);
-        values.put("cin",cin);
-        values.put("addresse",adress);
-        values.put("telephone", tel);
-        values.put("email",mail);
-        values.put("dateNaissance", dn);
-        values.put("departement",dpt);
-        values.put("emploiOccupe", empl);
-        values.put("anciennete",an);
-        values.put("salairebase",sb);
-        values.put("prime", prime);
 
-        long result = db.update("salaries", values, "id=?", new String[]{row_id});
-        if(result == -1){
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
-        }
-
-    }
 }

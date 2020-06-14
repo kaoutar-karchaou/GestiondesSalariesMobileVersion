@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.GS.R;
 import com.example.GS.java.database.SalariesDataSource;
+import com.example.GS.java.database.databaseHelper;
 
 public class update extends AppCompatActivity {
         EditText prenom;
@@ -53,41 +55,50 @@ protected void onCreate(Bundle savedInstanceState) {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                databaseHelper mydb= new databaseHelper(update.this);
+                mydb.updateData(id,n,p,c,ad,tel,m,dn,d,em,a,s,pr);
             }
         });
         getIntentData();
-        dataSource = new SalariesDataSource(getApplicationContext());
-        dataSource.updateData(id,n,p,c,ad,tel,m,dn,d,em,a,s,pr);
+
         }
-         void  getIntentData(){
+         public void  getIntentData(){
     //getting data from intent
-             id=getIntent().getStringExtra("id");
-             n=getIntent().getStringExtra("n");
-             p=getIntent().getStringExtra("p");
-             c=getIntent().getStringExtra("c");
-             ad=getIntent().getStringExtra("ad");
-             tel=getIntent().getStringExtra("tel");
-             m=getIntent().getStringExtra("m");
-             dn=getIntent().getStringExtra("dn");
-             d=getIntent().getStringExtra("d");
-             em=getIntent().getStringExtra("em");
-             a=getIntent().getIntExtra("a",0);
-             s=getIntent().getIntExtra("s",0);
-             pr=getIntent().getIntExtra("pr",0);
-    //setting itent data
+             if(getIntent().hasExtra("id") && getIntent().hasExtra("n") &&
+                     getIntent().hasExtra("p") && getIntent().hasExtra("c") && getIntent().hasExtra("ad")&& getIntent().hasExtra("tel")
+                     && getIntent().hasExtra("m")&& getIntent().hasExtra("dn")&& getIntent().hasExtra("d")&& getIntent().hasExtra("em")
+                     && getIntent().hasExtra("a")&& getIntent().hasExtra("s")&& getIntent().hasExtra("pr")){
+                 id = getIntent().getStringExtra("id");
+                 n = getIntent().getStringExtra("n");
+                 p = getIntent().getStringExtra("p");
+                 c = getIntent().getStringExtra("c");
+                 ad = getIntent().getStringExtra("ad");
+                 tel = getIntent().getStringExtra("tel");
+                 m = getIntent().getStringExtra("m");
+                 dn = getIntent().getStringExtra("dn");
+                 d = getIntent().getStringExtra("d");
+                 em = getIntent().getStringExtra("em");
+                 a = getIntent().getIntExtra("a", 0);
+                 s = getIntent().getIntExtra("s", 0);
+                 pr = getIntent().getIntExtra("pr", 0);
 
-              prenom.setText(p);
-              nom.setText(n);
-              cin.setText(c);
-              addresse.setText(ad);
-              telephone.setText(tel);
-              dateNaissance.setText(dn);
-              departement.setText(d);
-              emploiOccupe.setText(em);
-              anciennete.setText(a);
-              salaireBase.setText(s);
-              email.setText(m);
-              prime.setText(pr);
+                 //setting itent data
 
+                 nom.setText(n);
+                 prenom.setText(p);
+                 cin.setText(c);
+                 addresse.setText(ad);
+                 telephone.setText(tel);
+                 email.setText(m);
+                 dateNaissance.setText(dn);
+                 departement.setText(d);
+                 emploiOccupe.setText(em);
+                 anciennete.setInputType(a);
+                 salaireBase.setInputType(s);
+                 prime.setInputType(pr);
+             }
+             else{
+                 Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
+             }
          }
         }
