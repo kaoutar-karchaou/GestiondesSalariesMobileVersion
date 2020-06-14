@@ -62,8 +62,11 @@ public class databaseHelper extends SQLiteOpenHelper {
 
         long result = db.update("salaries", values, "id=?", new String[]{row_id});
         if(result == -1){
+            System.out.println("erreur, pas de modification");
             return false;
+
         }else {
+            System.out.println("success, modification faite");
             return true;
         }
 
