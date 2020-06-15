@@ -49,7 +49,7 @@ protected void onCreate(Bundle savedInstanceState) {
         salaireBase=findViewById(R.id.edit_sal_salaire);
         prime=findViewById(R.id.edit_sal_prime);
 
-        btnEdit=findViewById(R.id.edit_sal_btn);
+        btnEdit=findViewById(R.id.edit_sal_btn_add);
         btnExit=findViewById(R.id.edit_sal_btn_exit);
 
         //we call this
@@ -81,6 +81,15 @@ protected void onCreate(Bundle savedInstanceState) {
             }
         });
 
+
+        btnExit.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                databaseHelper mydb= new databaseHelper(update.this);
+                mydb.deleteOnerow(id);
+                finish();
+                                   }
+        }
+    );
 
         }
          public void  getIntentData(){
@@ -124,4 +133,7 @@ protected void onCreate(Bundle savedInstanceState) {
              salaireBase.setInputType(s);
              prime.setInputType(pr);
          }
+
+
+
         }

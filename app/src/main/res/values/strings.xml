@@ -6,6 +6,9 @@
     <string name="liste_sal_btn_add">Nouveau Salarié</string>
     <string name="add_sal_btn_add">Enregistrer</string>
     <string name="add_sal_btn_exit">Annuler</string>
+    <string name="edit_sal_btn_add">Modifier</string>
+    <string name="edit_sal_btn_exit">Supprimer</string>
+    <string name="edit_sal_title">Modifier le salarié</string>
     <string name="add_sal_btn_prenom">Prenom</string>
     <string name="add_sal_btn_nom">nom</string>
     <string name="add_sal_btn_cin">CIN :</string>

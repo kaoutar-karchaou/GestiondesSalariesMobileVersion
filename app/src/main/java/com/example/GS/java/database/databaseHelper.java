@@ -43,7 +43,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     onCreate(db);
     }
 
-    public boolean updateData(String row_id, String nom, String prenom, String cin, String adress, String tel ,String mail,String dn, String dpt,
+     public boolean updateData(String row_id, String nom, String prenom, String cin, String adress, String tel ,String mail,String dn, String dpt,
                               String em, int a, int s, int pr ){
         SQLiteDatabase db= this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -71,5 +71,20 @@ public class databaseHelper extends SQLiteOpenHelper {
         }
 
     }
+
+     public boolean deleteOnerow(String row_id){
+        SQLiteDatabase db= this.getWritableDatabase();
+         long result = db.delete("salaries", "id=?", new String[]{row_id});
+
+         if(result == -1){
+             System.out.println("erreur");
+             return false;
+
+         }else {
+             System.out.println("success, suppression faite");
+             return true;
+         }
+
+     }
 
 }
