@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.GS.R;
+import com.example.GS.java.database.databaseHelper;
 
 import java.util.ArrayList;
 
@@ -84,8 +85,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         return sal_id.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView salId, salN, salP;
+    public  class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView salId, salN, salP, salCin;
+
         LinearLayout updateActivity;
 
         public MyViewHolder(@NonNull View itemView) {
