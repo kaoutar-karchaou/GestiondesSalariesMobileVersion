@@ -66,6 +66,9 @@ public class authentificate extends AppCompatActivity {
                             Toast.makeText(authentificate.this, "utilisateur est connecté", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), accueil.class));
                         }
+                        else{
+                            Toast.makeText(authentificate.this, "veuillez verifier les données que vous avez entré", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
             }
