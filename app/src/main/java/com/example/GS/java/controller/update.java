@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -53,6 +54,7 @@ public class update extends AppCompatActivity {
 
         btnEdit = findViewById(R.id.edit_sal_btn_add);
         btnExit = findViewById(R.id.edit_sal_btn_exit);
+        btnview = findViewById(R.id.edit_sal_btn_infos);
 
         //we call this
         getIntentData();
@@ -67,8 +69,6 @@ public class update extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 databaseHelper mydb = new databaseHelper(update.this);
-
-                mydb.updateData(id, n, p, c, ad, tel, m, dn, d, em, aa, ss, prr);
                 n = nom.getText().toString().trim();
                 p = prenom.getText().toString().trim();
                 c = cin.getText().toString().trim();
@@ -76,11 +76,132 @@ public class update extends AppCompatActivity {
                 tel = telephone.getText().toString().trim();
                 m = email.getText().toString().trim();
                 em = emploiOccupe.getText().toString().trim();
+                dn = dateNaissance.getText().toString().trim();
+                d = departement.getText().toString().trim();
                 aa = Integer.parseInt(anciennete.getText().toString().trim());
                 ss = Integer.parseInt(salaireBase.getText().toString().trim());
                 prr = Integer.parseInt(prime.getText().toString().trim());
+                boolean res= mydb.updateData(id, n, p, c, ad, tel, m, dn, d, em, aa, ss, prr);
+                if (res==false){
+                    Toast.makeText(getApplicationContext(),"erreur de modif!!",Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(getApplicationContext(),"modification réussie!!",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(), accueil.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
+
+        btnview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent= new Intent(getApplicationContext(),infos_salarie.class);
+                String n = nom.getText().toString();
+                String p = prenom.getText().toString();
+                String c = cin.getText().toString();
+                String a = addresse.getText().toString();
+                String t = telephone.getText().toString();
+                String e = email.getText().toString();
+                String d = dateNaissance.getText().toString();
+                String dpt = departement.getText().toString();
+                String empl = emploiOccupe.getText().toString();
+                /* int an =Integer.parseInt(*/ String an=anciennete.getText().toString();
+                /*int sa = Integer.parseInt(*/String sa =salaireBase.getText().toString();
+                /*int pr =Integer.parseInt(*/String pr = prime.getText().toString();
 
 
+                int anc=Integer.parseInt(an);
+                int salBase=Integer.parseInt(sa);
+                double primeAnc;
+                double cnss;
+                double cimr;
+                double impot;
+
+                // calculer prime anciennete
+
+                int prm=Integer.parseInt(pr);
+                if(anc<2){
+                    primeAnc=0;
+                }
+                else if(anc>2 & anc<5){
+                    primeAnc=salBase * 0.05;
+                }
+                else if(anc>5 & anc<12){
+                    primeAnc=salBase * 0.1;
+                }
+                else if(anc>12 & anc<20){
+                    primeAnc=salBase * 0.15;
+                }
+                else if(anc>20 & anc<25){
+                    primeAnc=salBase * 0.2;
+                }
+                else {
+                    primeAnc=salBase * 0.25;
+                }
+
+                //SalaireBrut = SalaireBase + primeAnciennete + prime
+
+                double salaireBrut = salBase + primeAnc + prm;
+
+                // calculer prelevement cnss
+
+                if(salaireBrut<=6000){
+                    cnss =salaireBrut * 0.0429;
+                }
+                else {
+                    cnss = 6000 * 0.0429;
+                }
+
+                //calculer prelevement cimr
+
+                cimr = salaireBrut * 0.06;
+
+                // calculer prelevemnt des impots
+
+                if(salaireBrut <=2500){
+                    impot= salaireBrut* 0;
+                }
+                else if( salaireBrut > 2500 & salaireBrut< 4167){
+                    impot = salaireBrut * 0.1;
+                }
+                else if( salaireBrut > 4166 & salaireBrut< 5001){
+                    impot = salaireBrut * 0.2;
+                }
+
+                else if( salaireBrut > 5000 & salaireBrut< 6667){
+                    impot = salaireBrut * 0.3;
+                }
+                else if( salaireBrut > 6666 & salaireBrut< 15001){
+                    impot = salaireBrut * 0.3;
+                }
+                else {
+                    impot = salaireBrut * 0.38;
+                }
+
+                // calculer salaire net
+
+                double salaireNet = salaireBrut - cnss -cimr - impot;
+
+                //////////////////////////////////////////////////////
+
+                    // intent = new Intent(add_sal.this,Intent intent= new Intent(getApplicationContext(),liste_Salaries.class);
+                    intent.putExtra("keynom", n);
+                    intent.putExtra("keyprenom", p);
+                    intent.putExtra("keyc", c);
+                    intent.putExtra("keya", a);
+                    intent.putExtra("keyt", t);
+                    intent.putExtra("keye", e);
+                    intent.putExtra("keyd", d);
+                    intent.putExtra("keydpt", dpt);
+                    intent.putExtra("keyempl", empl);
+                    intent.putExtra("keyan", an);
+                    intent.putExtra("keysa", sa);
+                    intent.putExtra("keypr", pr);
+                    intent.putExtra("i", salaireNet);
+
+                    startActivity(intent);
             }
         });
 
@@ -89,8 +210,15 @@ public class update extends AppCompatActivity {
                                        @Override
                                        public void onClick(View v) {
                                            databaseHelper mydb = new databaseHelper(update.this);
-                                           mydb.deleteOnerow(id);
+                                         boolean res=  mydb.deleteOnerow(id);
                                            finish();
+                                           if (res==false){
+                                               Toast.makeText(getApplicationContext(),"erreur de suppression!!",Toast.LENGTH_LONG).show();
+                                           }else {
+                                               Toast.makeText(getApplicationContext(),"Utilisateur Supprimé!!",Toast.LENGTH_LONG).show();
+                                               Intent intent = new Intent(getApplicationContext(), accueil.class);
+                                               startActivity(intent);
+                                           }
                                        }
                                    }
         );
