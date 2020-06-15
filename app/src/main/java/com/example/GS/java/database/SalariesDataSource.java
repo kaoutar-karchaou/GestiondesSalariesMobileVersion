@@ -84,15 +84,7 @@ private SQLiteDatabase db;
 
     }
 
-  public  Cursor readSal(){
-        String query="SELECT * FROM Salaries";
-        db=mydb.getReadableDatabase();
-        Cursor cursor = null;
-        if(db != null){
-           cursor= db.rawQuery(query, null);
-        }
-        return  cursor;
-    }
+
 
 
 }

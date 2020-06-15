@@ -27,7 +27,7 @@ public class liste_Salaries extends AppCompatActivity {
     //Button btnAddSal;
    // ListView listeSal;
     RecyclerView recyclerView;
-    SalariesDataSource dataSource=new SalariesDataSource(liste_Salaries.this);
+    databaseHelper mydb= new databaseHelper(liste_Salaries.this);
     ArrayList<String> sal_nom,sal_prenom,sal_id,sal_ad,sal_tel,sal_mail,sal_empl,sal_dpt,sal_sal,sal_anc,sal_prime,sal_cin,sal_dn;
     CustomAdapter customAdapter;
     @Override
@@ -58,13 +58,13 @@ public class liste_Salaries extends AppCompatActivity {
         sal_cin=new ArrayList<>();
 
         displayData();
-        customAdapter=new CustomAdapter(liste_Salaries.this,this,sal_id,sal_dn, sal_nom,sal_cin, sal_prenom,sal_ad,sal_tel,sal_mail,sal_empl,sal_dpt,sal_sal,sal_anc,sal_prime);
+        customAdapter=new CustomAdapter(liste_Salaries.this,this,sal_id,sal_nom, sal_prenom,sal_cin,sal_ad, sal_tel,sal_mail,sal_dn,sal_dpt,sal_empl,sal_anc,sal_sal,sal_prime);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(liste_Salaries.this));
     }
 
     void displayData(){
-        Cursor cursor = dataSource.readSal();
+        Cursor cursor = mydb.readSal();
         if (cursor.getCount()==0){
             Toast.makeText(this, "rien à afficher", Toast.LENGTH_SHORT).show();
         }else{
