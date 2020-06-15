@@ -22,9 +22,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     private Activity activity;
     private ArrayList sal_id,sal_nom,sal_prenom,sal_cin,sal_ad,sal_tel,sal_mail,sal_empl,sal_dpt,sal_sal,sal_anc,sal_prime,sal_dn;
     int postion;
-    CustomAdapter(Activity activity,Context context, ArrayList sal_id, ArrayList sal_nom, ArrayList sal_prenom,
-                  ArrayList sal_ad,ArrayList sal_tel, ArrayList sal_mail, ArrayList sal_empl, ArrayList sal_dpt,
-                  ArrayList sal_sal, ArrayList sal_anc, ArrayList sal_prime, ArrayList sal_cin,ArrayList sal_dn){
+    CustomAdapter(Activity activity,Context context, ArrayList sal_id, ArrayList sal_nom, ArrayList sal_prenom, ArrayList sal_cin,
+                  ArrayList sal_ad,ArrayList sal_tel, ArrayList sal_mail,ArrayList sal_dn,ArrayList sal_dpt, ArrayList sal_empl,ArrayList sal_anc ,
+                  ArrayList sal_sal,ArrayList sal_prime){
         this.context=context;
         this.sal_id=sal_id;
         this.sal_nom=sal_nom;
@@ -70,6 +70,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
          intent.putExtra("dn",String.valueOf(sal_dn.get(position)));
          intent.putExtra("d",String.valueOf(sal_dpt.get(position)));
          intent.putExtra("em",String.valueOf(sal_empl.get(position)));
+         intent.putExtra("an",String.valueOf(sal_anc.get(position)));
          intent.putExtra("s",String.valueOf(sal_sal.get(position)));
          intent.putExtra("pr",String.valueOf(sal_prime.get(position)));
          activity.startActivityForResult(intent, 1);

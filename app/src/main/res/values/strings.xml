@@ -35,5 +35,6 @@
     <string name="reg_email">veuillez saisir votre Email</string>
     <string name="reg_pswd1">veuillez saisir un mot de passe</string>
     <string name="bp">Le Bulletin de paie de :</string>
+    <string name="edit_sal_btn_infos"> + plus d\'infos</string>
 
 </resources>

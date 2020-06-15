@@ -72,7 +72,7 @@ private SQLiteDatabase db;
             salarie.setDepartement(cursor.getString(8));
             salarie.setEmploiOccupe(cursor.getString(9));
             salarie.setAnciennete(cursor.getInt(10));
-            salarie.setSalaireBase(cursor.getInt(12));
+            salarie.setSalaireBase(cursor.getInt(11));
             salarie.setPrime(cursor.getInt(12));
             System.out.println(salarie);
             salaries.add(salarie);
@@ -93,6 +93,5 @@ private SQLiteDatabase db;
         }
         return  cursor;
     }
-
 
 }
